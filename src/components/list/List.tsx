@@ -11,15 +11,10 @@ import {
   ListSectionTitle,
   ListTitle,
   SectionWrapper,
-  ToDoList,
-  CreateCheckBox,
-  CreateInput,
-  CreateToDo,
   Counter,
-  ToDo,
-  CheckBox,
-  CheckMark,
 } from "./style";
+import ToDoListContainer from "../ToDoListContainer/ToDoListContainer";
+import { productivityData } from "../data/ToDosProductivity";
 
 const Card = () => {
   const closeList = (e: string): void => {
@@ -46,40 +41,7 @@ const Card = () => {
                 <Counter>4</Counter>
               </WrapperInner>
             </SectionWrapper>
-            <ToDoList className="productivity">
-              <ToDo>
-                <label>
-                  <CheckBox type="checkbox" />
-                  <span>Work on the landing page</span>
-                  <CheckMark className="check-mark" />
-                </label>
-              </ToDo>
-              <ToDo>
-                <label>
-                  <CheckBox type="checkbox" />
-                  <span>Buy food</span>
-                  <CheckMark className="check-mark" />
-                </label>
-              </ToDo>
-              <ToDo>
-                <label>
-                  <CheckBox type="checkbox" checked />
-                  <span>Design a banner</span>
-                  <CheckMark className="check-mark" />
-                </label>
-              </ToDo>
-              <ToDo>
-                <label>
-                  <CheckBox type="checkbox" />
-                  <span>Cleaning</span>
-                  <CheckMark className="check-mark" />
-                </label>
-              </ToDo>
-              <CreateToDo>
-                <CreateCheckBox type="checkbox" />
-                <CreateInput type="text" placeholder="Write your task" />
-              </CreateToDo>
-            </ToDoList>
+            {/* <ToDoListContainer items={productivityData} /> */}
           </ListSection>
           <ListSection>
             <SectionWrapper onClick={() => closeList("assign")}>

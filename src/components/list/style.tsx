@@ -29,6 +29,21 @@ export const ListHeader = styled.div`
   }
 `;
 
+export const Label = styled.label`
+  &.completed > .check-box {
+    background: #b5b5ba;
+
+    & > .check-mark::after {
+      display: block;
+    }
+
+    & > .todo-name {
+      color: #b5b5ba;
+      text-decoration: line-through;
+    }
+  }
+`;
+
 export const ListInner = styled.div`
   width: 100%;
   height: 100%;
@@ -55,7 +70,7 @@ export const WrapperInner = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  pointer-evenets: none;
+  pointer-events: none;
 `;
 
 export const ListSectionTitle = styled.div`
@@ -100,6 +115,7 @@ export const ToDoList = styled.ul`
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  transition: all 0.25s linear;
 
   &.active {
     display: none;
@@ -137,19 +153,6 @@ export const CheckBox = styled.input`
   margin-right: 10px;
   border-radius: 6px;
   cursor: pointer;
-
-  &:checked {
-    background: #b5b5ba;
-
-    & ~ .check-mark::after {
-      display: block;
-    }
-
-    & ~ span {
-      color: #b5b5ba;
-      text-decoration: line-through;
-    }
-  }
 `;
 
 export const CheckMark = styled.span`
