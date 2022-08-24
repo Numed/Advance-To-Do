@@ -1,3 +1,4 @@
+import React from "react";
 import {
   ToDoList,
   CreateCheckBox,
@@ -10,14 +11,17 @@ import {
 } from "../list/style";
 
 type ToDoTypes = {
-  name: string;
-  id: number;
-  completed: boolean;
-  items: Array;
+  items: [
+    {
+      id: number;
+      name: string;
+      completed: boolean;
+    }
+  ];
 };
 
-const ToDoListContainer: React.FunctionComponent<ToDoTypes> = ({ items }) => {
-  const changeHandler = (e: any): void => {
+const ToDoListContainer: React.FC<ToDoTypes> = ({ items }) => {
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     console.log(e);
   };
 
@@ -27,11 +31,11 @@ const ToDoListContainer: React.FunctionComponent<ToDoTypes> = ({ items }) => {
         return (
           <>
             <ToDo key={id}>
-              <Label className={completed ? "completed" : null}>
+              <Label>
                 <CheckBox
                   type="checkbox"
                   className="check-box"
-                  onChange={(e) => changeHandler(e.target)}
+                  onChange={changeHandler}
                 />
                 <span className="todo-name">{name}</span>
                 <CheckMark className="check-mark" />
